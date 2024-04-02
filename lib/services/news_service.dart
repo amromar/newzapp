@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:newzapp/models/article_modle.dart';
+import 'package:newzapp/models/article_model.dart';
 
 class NewsService {
    final Dio dio;

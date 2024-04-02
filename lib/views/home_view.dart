@@ -58,7 +58,7 @@ class HomeView extends StatelessWidget {
               SliverToBoxAdapter(
                 child: SizedBox(height: 10),
               ),
-               NewsTileView(),
+               NewsListWidget.NewsListWidget(articles: [],),
 
 
             ],
@@ -68,34 +68,4 @@ class HomeView extends StatelessWidget {
       ),
     );
   }
-}/*child:
-        Column(
-          children: [
-            Container(
-              child: Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      Icon(Icons.search),
-                      Text('Search for news'),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 10),
-            CategoriesListView(),
-
-            SizedBox(height: 10),
-
-
-            NewsTileView(),
-          ],
-        ),*/
-
-
-
-
-
-
+}

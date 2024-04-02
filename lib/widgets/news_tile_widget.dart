@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:newzapp/models/article_modle.dart';
-import 'package:newzapp/models/news_tile_model.dart';
 
-class NewsTile extends StatelessWidget {
-  const NewsTile({
+import 'package:flutter/material.dart';
+import 'package:newzapp/models/article_model.dart';
+
+
+class NewsTileWidget extends StatelessWidget {
+  const NewsTileWidget({super.key,
 
     required this.articleModel,
 
