@@ -15,8 +15,10 @@ class NewsListBuilder extends StatefulWidget {
 }
 
 class _NewsListBuilderState extends State<NewsListBuilder> {
+
   bool isLoading = true;
   List<ArticleModel> articles = [];
+  @override
   void initState()  {
     super.initState();
     initNews();
@@ -31,12 +33,39 @@ class _NewsListBuilderState extends State<NewsListBuilder> {
   }
   @override
   Widget build(BuildContext context) {
-    return isLoading ?
-    SliverToBoxAdapter(child:ContentLoader()): SliverList(delegate: SliverChildBuilderDelegate((context, index) {
-      return Padding(
-        padding: const EdgeInsets.only(top: 14),
-        child: NewsTileWidget( articleModel: articles[index]),
-      );
-    }, childCount: articles.length),);
+    double height = MediaQuery.of(context).size.height;
+    return isLoading
+        ? SliverFillRemaining(
+      child: ContentLoader(),
+    )
+        : articles.isEmpty
+        ? SliverToBoxAdapter(
+      child: Center(
+        child: Container(
+          alignment: Alignment.center,
+          height: height / 2,
+          child: const Text(
+            'No data found',
+            style: TextStyle(
+              color: Colors.orange,
+              fontSize: 20,
+            ),
+          ),
+        ),
+      ),
+    )
+        : SliverList(
+      delegate: SliverChildBuilderDelegate(
+            (context, index) {
+          return Padding(
+            padding: const EdgeInsets.only(top: 14),
+            child: NewsTileWidget(
+              articleModel: articles[index],
+            ),
+          );
+        },
+        childCount: articles.length,
+      ),
+    );
   }
 }

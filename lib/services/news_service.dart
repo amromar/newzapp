@@ -5,6 +5,7 @@ class NewsService {
    final Dio dio;
     NewsService(this.dio);
 Future<List<ArticleModel>> getGeneralNews() async {
+  try{
   final response = await dio.get(
       'https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=2d97bc486d194e2ab70ab1583796ec9c');
         Map<String,dynamic> jsonData = response.data;
@@ -26,6 +27,10 @@ Future<List<ArticleModel>> getGeneralNews() async {
     }
 
   return articleList;
+  }catch(e){
+    print(e);
+    return [];
+  }
 
   }
 }
