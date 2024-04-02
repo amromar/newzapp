@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import '../widgets/category_listview_widget.dart';
-import 'news_tile_view.dart';
+import 'news_list_view.dart';
 class HomeView extends StatelessWidget {
   const HomeView({Key? key});
 
