@@ -9,8 +9,9 @@ import 'news_tile_widget.dart';
 class NewsListBuilder extends StatefulWidget {
   final Key? key;
 
-  NewsListBuilder({this.key}) : super(key: key);
-
+  NewsListBuilder({this.key, required this.category}) : super(key: key);
+final String category;
+final String country = 'eg';
   @override
   State<NewsListBuilder> createState() => _NewsListBuilderState();
 }
@@ -18,8 +19,9 @@ class NewsListBuilder extends StatefulWidget {
 class _NewsListBuilderState extends State<NewsListBuilder> {
   @override
   Widget build(BuildContext context) {
+
     return FutureBuilder<List<ArticleModel>>(
-      future: NewsService(Dio()).getGeneralNews(),
+      future: NewsService(Dio()).getNews( country: widget.country, category: widget.category),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return SliverToBoxAdapter(

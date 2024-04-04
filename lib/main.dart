@@ -4,7 +4,7 @@ import 'package:newzapp/services/news_service.dart';
 import 'package:newzapp/views/home_view.dart';
 
 void main() {
-  NewsService(dio).getGeneralNews();
+  NewsService(dio).getNews( category: 'general', country: 'us');
   runApp(const NewzApp());
 
 }

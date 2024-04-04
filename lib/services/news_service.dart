@@ -4,10 +4,11 @@ import 'package:newzapp/models/article_model.dart';
 class NewsService {
    final Dio dio;
     NewsService(this.dio);
-Future<List<ArticleModel>> getGeneralNews() async {
+Future<List<ArticleModel>> getNews({ required String category, required String country }  ) async {
+  country = 'us';
   try{
   final response = await dio.get(
-      'https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=2d97bc486d194e2ab70ab1583796ec9c');
+      'https://newsapi.org/v2/top-headlines?country=$country&apiKey=2d97bc486d194e2ab70ab1583796ec9c&category=$category');
         Map<String,dynamic> jsonData = response.data;
         List<dynamic> articles= jsonData['articles'];
         List<ArticleModel>articleList=[];

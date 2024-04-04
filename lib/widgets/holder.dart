@@ -27,7 +27,7 @@ class _NewsListWidgetState extends State<NewsListWidget> {
 
   }
   Future<void> initNews() async {
-    List<ArticleModel> articles= await NewsService(Dio()).getGeneralNews();
+    List<ArticleModel> articles= await NewsService(Dio()).getNews(  country: 'us', category: 'general');
     isLoading = false;
     setState(() {
       this.articles = articles;

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:newzapp/models/article_model.dart';
 import 'package:newzapp/widgets/news_list_builder.dart';
@@ -25,6 +26,6 @@ class _NewsListWidgetState extends State<NewsListWidget> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
    
-    return NewsListBuilder();
+    return NewsListBuilder(category:'',);
   }
 }
