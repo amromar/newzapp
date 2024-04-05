@@ -9,7 +9,7 @@ class CategoryView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
 
-      padding: const EdgeInsets.only(top: 0.0),
+      padding: const EdgeInsets.only(top: 8.0),
       child: Scaffold(
         appBar: AppBar(
           title: Text(category),
